@@ -15,7 +15,7 @@ public class Location {
     private  Long id;
     private Date date;
     @ManyToOne
-    private Auteur auteur;
+    private Abonne abonne;
     @ManyToOne
-    private Document document  ;
+    private Document document;
 }

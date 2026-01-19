@@ -14,9 +14,8 @@ public class Document {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String titre;
-    private String resume;
-    private String extrait;
+    private String auteur;
+    private String preface;
     private String type;
-    @ManyToOne
-    private Auteur auteur;
+    private String code;
 }

@@ -1,17 +1,16 @@
-package com.atsoft.backblio.entities;
+package com.atsoft.backblio.dtos;
 
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.Column;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.sql.Date;
-@Entity
-@Getter
-@Setter
+@Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class Abonne {
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+public class AbonneDto {
     private String nom;
     private String prenom;
     private Date naissance;
