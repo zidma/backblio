@@ -2,17 +2,24 @@ package com.atsoft.backblio.services.implementations;
 
 import com.atsoft.backblio.dtos.AbonneDto;
 import com.atsoft.backblio.entities.Abonne;
+import com.atsoft.backblio.entities.Fichier;
 import com.atsoft.backblio.repositories.AboRepository;
 import com.atsoft.backblio.services.AbonneService;
+import com.atsoft.backblio.services.FichierService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class AbonneImplementation implements AbonneService {
     private final AboRepository aboRepository;
+    private final FichierService  fichierService;
     @Override
-    public Abonne saveAbone(AbonneDto dto) {
+    public Abonne saveAbone(MultipartFile file, AbonneDto dto) throws IOException {
+        Fichier piece=this.fichierService.saveFile(file);
        Abonne abonne=Abonne
                .builder()
                .nom(dto.getNom())
@@ -20,6 +27,7 @@ public class AbonneImplementation implements AbonneService {
                .ecole(dto.getEcole())
                .proffession(dto.getProffession())
                .naissance(dto.getNaissance())
+               .piece(piece.getId())
                .build();
        return this.aboRepository.save(abonne);
     }

@@ -2,11 +2,12 @@ package com.atsoft.backblio.services;
 
 import com.atsoft.backblio.dtos.AbonneDto;
 import com.atsoft.backblio.entities.Abonne;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
-
 public interface AbonneService {
-    Abonne saveAbone(AbonneDto dto);
+    Abonne saveAbone( MultipartFile file, AbonneDto dto) throws IOException;
     Abonne updateAbonnee(Long id ,AbonneDto dto);
     Abonne findById(Long id);
     List<Abonne>  listeABonnes();

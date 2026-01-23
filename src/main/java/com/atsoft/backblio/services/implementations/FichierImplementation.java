@@ -22,10 +22,19 @@ public class FichierImplementation implements FichierService {
     @Override
     public Fichier saveFile(MultipartFile file) throws IOException {
 
-     return    this.fichierRepository.save(Fichier.builder()
+     Fichier fichier=   this.fichierRepository.save(Fichier.builder()
                 .name(file.getOriginalFilename())
                 .type(file.getContentType())
                 .fileData(FileOps.compressImage(file.getBytes())).build());
+     return  fichier;
+    }
+
+    @Override
+    public Fichier[] saveMultipleFiles(MultipartFile[] files) throws IOException {
+        Fichier[] fichiers=new Fichier[2];
+        fichiers[0]=saveFile(files[0]);
+        fichiers[1]=saveFile(files[1]);
+        return fichiers;
     }
 
     @Override
