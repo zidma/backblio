@@ -55,4 +55,13 @@ public class FichierImplementation implements FichierService {
                 .type(fileData.getType())
                 .fileData(FileOps.decompressImage(fileData.getFileData())).build()).orElse(null);
     }
+
+    @Override
+    public byte[] getById(Long id) {
+        Fichier f=this.fichierRepository.findById(id).orElse(null);
+        if(f!=null){
+            return  FileOps.decompressImage(f.getFileData());
+        }
+        return null;
+    }
 }

@@ -9,4 +9,5 @@ public interface FichierService {
     Fichier[] saveMultipleFiles (MultipartFile[] files) throws IOException;
     byte[] retrieveFile(String name);
     Fichier getRealFile(String name);
+    byte[] getById(Long id);
 }

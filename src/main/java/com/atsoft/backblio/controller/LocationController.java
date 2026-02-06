@@ -13,7 +13,8 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/locations")
+@CrossOrigin("*")
+@RequestMapping("/api/rentals")
 public class LocationController {
     private final LocationService locationService;
     @PostMapping(path = "/add")

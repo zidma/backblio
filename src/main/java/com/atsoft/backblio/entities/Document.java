@@ -13,9 +13,11 @@ public class Document {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    private String titre;
-    private String auteur;
+    private String title;
+    private String author;
     private String preface;
     private String type;
+    private boolean lended=false;
     private String code;
+    private Long[] images;
 }

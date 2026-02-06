@@ -11,14 +11,10 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AbonneDto {
-    private String nom;
-    private String prenom;
-    private Date naissance;
+    private String firstName;
+    private String lastName;
     @Column(nullable = true)
-    private String proffession;
+    private String school;
     @Column(nullable = true)
-    private String ecole;
-    @Column(nullable = true)
-    private Long piece;
-    private String telephone;
+    private String phone;
 }

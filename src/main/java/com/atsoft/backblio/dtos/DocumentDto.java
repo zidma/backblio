@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class DocumentDto {
     private String title;
-    private String auteur;
+    private String author;
     private String preface;
     private String type;
     private String code;

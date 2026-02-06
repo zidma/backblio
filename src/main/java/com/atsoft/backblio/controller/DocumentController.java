@@ -8,7 +8,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 @RestController
+@RequestMapping("/api/books")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class DocumentController {
     private final DocumentService abonneService;
     @PostMapping(path = "/add")
@@ -24,7 +26,7 @@ public class DocumentController {
         return  this.abonneService.findById(id);
     }
     @GetMapping(path = "")
-    public List<Document> allMatieres(){
+    public List<Document> allDocuments(){
         return  this.abonneService.listeDocuments();
     }
 }
