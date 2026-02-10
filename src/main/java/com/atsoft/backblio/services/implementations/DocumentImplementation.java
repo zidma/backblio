@@ -23,9 +23,9 @@ public class DocumentImplementation  implements DocumentService {
     public Document saveDocument(MultipartFile[] files, DocumentDto dto) throws IOException {
         Fichier[] fichiers=fichierService.saveMultipleFiles(files);
          Document document=Document.builder()
-                 .auteur(dto.getAuteur())
+                 .author(dto.getAuthor())
                  .code(dto.getCode())
-                 .titre(dto.getTitle())
+                 .title(dto.getTitle())
                  .type(dto.getType())
                  .preface(dto.getPreface())
                  .build();
@@ -41,9 +41,9 @@ public class DocumentImplementation  implements DocumentService {
         Document document=this.docRepository.findById(id).orElse(null);
          if(document!=null){
              Document newDocument=Document.builder()
-                     .auteur(dto.getAuteur())
+                     .author(dto.getAuthor())
                      .code(dto.getCode())
-                     .titre(dto.getTitle())
+                     .title(dto.getTitle())
                      .type(dto.getType())
                      .preface(dto.getPreface())
                      .build();

@@ -18,4 +18,5 @@ public class Location {
     private Abonne abonne;
     @ManyToOne
     private Document document;
+    private boolean retour=false;
 }

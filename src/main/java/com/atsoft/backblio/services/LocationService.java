@@ -12,4 +12,5 @@ public interface LocationService {
     Location updateLocation(Long id ,LocationDto dto);
     Location findById(Long id);
     List<Location> listeLocations();
+    List<Location> addMultiple(Long abonne,Long[] docs);
 }

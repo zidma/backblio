@@ -8,9 +8,11 @@ import com.atsoft.backblio.repositories.AboRepository;
 import com.atsoft.backblio.repositories.DocRepository;
 import com.atsoft.backblio.repositories.LocationRepo;
 import com.atsoft.backblio.services.LocationService;
+import com.atsoft.backblio.utils.CustomDate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
@@ -55,5 +57,21 @@ public class LocationImplementation implements LocationService {
     @Override
     public List<Location> listeLocations() {
         return this.locationRepo.findAll();
+    }
+
+    @Override
+    public List<Location> addMultiple(Long ab, Long[] docs) {
+        Abonne abonne=this.aboRepository.findById(ab).orElse(null);
+        List<Location> panier=new ArrayList<>();
+        for(int i=0;i<docs.length;i++){
+            Document document=this.docRepository.findById(docs[i]).orElse(null);
+           Location location= Location.builder()
+                   .abonne(abonne)
+                   .document(document)
+                   .date(CustomDate.localFormatedDate())
+                   .build();
+           panier.add(location);
+        }
+        return panier   ;
     }
 }
